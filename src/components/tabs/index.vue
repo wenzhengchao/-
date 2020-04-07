@@ -8,20 +8,25 @@
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
 						<router-link to="/index/one">
 		                    <span class="mui-icon mui-icon-home"></span>
-		                    <div class="mui-media-body">Home</div></router-link></li>
-		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		                    <div class="mui-media-body">新闻资讯</div></router-link></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+						<router-link to="/index/photo">
 		                    <span class="mui-icon mui-icon-email"></span>
-		                    <div class="mui-media-body">Email</div></a></li>
-		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		                    <div class="mui-media-body">图片欣赏</div></router-link></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+						<a href="#">
 		                    <span class="mui-icon mui-icon-chatbubble"></span>
 		                    <div class="mui-media-body">Chat</div></a></li>
-		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+						<a href="#">
 		                    <span class="mui-icon mui-icon-location"></span>
 		                    <div class="mui-media-body">location</div></a></li>
-		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+						<a href="#">
 		                    <span class="mui-icon mui-icon-search"></span>
 		                    <div class="mui-media-body">Search</div></a></li>
-		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+						<a href="#">
 		                    <span class="mui-icon mui-icon-phone"></span>
 		                    <div class="mui-media-body">Phone</div></a></li>
 		        </ul> 

@@ -2,8 +2,8 @@
     <div>
         <h3>发表评论</h3>
         <hr>
-        <textarea placeholder="请评论"></textarea>
-        <mt-button size="large" type="primary">发表评论</mt-button>
+        <textarea placeholder="请评论" v-model="mit"></textarea>
+        <mt-button size="large" type="primary" @click="fb">发表评论</mt-button>
         <div class="cmt-list">
             <div class="cmt-item" v-for="(item,i) in list" :key="item.add_time">
                 <div class="cmt-title">第{{i+1}}楼{{item.user_name}}{{item.add_time | time}}</div>
@@ -18,7 +18,8 @@ export default{
     data:function(){
         return {
             index:1,
-            list:[]
+            list:[],
+            mit:''
         }
     },
     created(){
@@ -35,6 +36,21 @@ export default{
         add(){
             this.index=this.index+1
             this.pl()
+        },
+        fb(){
+            this.$http.post('api/postcomment/'+this.id,{
+                "content":this.mit
+            }).then(result=>{
+                if(result.body.status===0){
+                    var tj={
+                        user_name:'用户',
+                        add_time:Date.now(),
+                        content:this.mit
+                    }
+                    this.list.unshift(tj)
+                    this.mit=''
+                }
+            })
         }
     },
     props:['id']

@@ -16,6 +16,7 @@ Vue.component(Button.name, Button);
 
 import router from './router.js'
 Vue.http.options.root='http://www.liulongbin.top:3005';
+Vue.http.options.emulateJSON=true;
 Vue.use(vueRouter);
 Vue.filter('time',function(timedata,formats="YYYY-MM-DD HH:mm:ss"){
     return moment(timedata).format(formats)

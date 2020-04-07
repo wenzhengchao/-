@@ -5,6 +5,7 @@ import shopping from './src/components/tabs/shopping.vue'
 import search from './src/components/tabs/search.vue'
 import one from './src/components/index/one.vue'
 import news from './src/components/index/news.vue'
+import photo from './src/components/photo/photo.vue'
 var router=new vueRouter({
     routes:[
         {path:'/',redirect:'/index'},
@@ -14,6 +15,7 @@ var router=new vueRouter({
         {path:'/search',component:search},
         {path:'/index/one',component:one},
         {path:'/index/news/:id',component:news},
+        {path:'/index/photo',component:photo},
     ],
     linkActiveClass:'mui-active'
 })
