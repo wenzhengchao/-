@@ -8,11 +8,15 @@ import App from './App.vue';
 import './src/lib/css/mui.min.css'
 import './src/lib/css/icons-extra.css'
 
-import {Header,Swipe, SwipeItem,Button} from 'mint-ui';
-Vue.component(Header.name,Header);
-Vue.component(Swipe.name, Swipe);
-Vue.component(SwipeItem.name, SwipeItem);
-Vue.component(Button.name, Button);
+// import {Header,Swipe, SwipeItem,Button,Lazyload} from 'mint-ui';
+// Vue.component(Header.name,Header);
+// Vue.component(Swipe.name, Swipe);
+// Vue.component(SwipeItem.name, SwipeItem);
+// Vue.component(Button.name, Button);
+// Vue.use(Lazyload)
+import mintui from 'mint-ui';
+Vue.use(mintui);
+import 'mint-ui/lib/style.css'
 
 import router from './router.js'
 Vue.http.options.root='http://www.liulongbin.top:3005';
