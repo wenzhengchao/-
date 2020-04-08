@@ -7,6 +7,7 @@ import one from './src/components/index/one.vue'
 import news from './src/components/index/news.vue'
 import photo from './src/components/photo/photo.vue'
 import photoinfo from './src/components/photo/photoinfo.vue'
+import sp from './src/components/sp/sp.vue'
 var router=new vueRouter({
     routes:[
         {path:'/',redirect:'/index'},
@@ -18,6 +19,7 @@ var router=new vueRouter({
         {path:'/index/news/:id',component:news},
         {path:'/index/photo',component:photo},
         {path:'/index/photoinfo/:id',component:photoinfo},
+        {path:'/index/sp',component:sp},
     ],
     linkActiveClass:'mui-active'
 })
