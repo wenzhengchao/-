@@ -7,7 +7,8 @@ import moment from 'moment'
 import App from './App.vue';
 import './src/lib/css/mui.min.css'
 import './src/lib/css/icons-extra.css'
-
+import vuePreview from 'vue-preview'
+Vue.use(vuePreview)
 // import {Header,Swipe, SwipeItem,Button,Lazyload} from 'mint-ui';
 // Vue.component(Header.name,Header);
 // Vue.component(Swipe.name, Swipe);

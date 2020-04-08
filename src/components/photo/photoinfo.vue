@@ -6,6 +6,7 @@
             <span>点击{{list.click}}次</span>
         </p>
         <hr>
+        <vue-preview :slides="slide1" @close="handleClose"></vue-preview>
         <div class="content" v-html="list.content"></div>
         <pinglun :id="id"></pinglun>
     </div>
@@ -16,11 +17,13 @@ export default{
     data:function(){
         return {
             id:this.$route.params.id,
-            list:{}
+            list:{},
+            slide1: []
         }
     },
     created(){
         this.imginfo()
+        this.img()
     },
     methods:{
         imginfo(){
@@ -29,6 +32,21 @@ export default{
                 this.list=result.body.message[0]
             }
         })
+        },
+        handleClose(){
+            console.log('nn')
+        },
+        img(){
+            this.$http.get('api/getthumimages/'+this.id).then(result=>{
+                if(result.body.status===0){
+                    result.body.message.forEach(item=>{
+                        item.w=600;
+                        item.h=400;
+                        item.msrc=item.src
+                    })
+                    this.slide1=result.body.message
+                }
+            })
         }
     },
     components:{
