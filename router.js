@@ -8,6 +8,10 @@ import news from './src/components/index/news.vue'
 import photo from './src/components/photo/photo.vue'
 import photoinfo from './src/components/photo/photoinfo.vue'
 import sp from './src/components/sp/sp.vue'
+import gm from './src/components/sp/gm.vue'
+import xq from './src/components/sp/xq.vue'
+import pl from './src/components/sp/pl.vue'
+
 var router=new vueRouter({
     routes:[
         {path:'/',redirect:'/index'},
@@ -20,6 +24,9 @@ var router=new vueRouter({
         {path:'/index/photo',component:photo},
         {path:'/index/photoinfo/:id',component:photoinfo},
         {path:'/index/sp',component:sp},
+        {path:'/index/gm/:id',component:gm},
+        {path:'/index/xq/:id',component:xq,name:'xq'},
+        {path:'/index/pl/:id',component:pl,name:'pl'},
     ],
     linkActiveClass:'mui-active'
 })

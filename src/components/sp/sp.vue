@@ -1,51 +1,47 @@
 <template>
     <div class="sp-list">
-        <div class="sp-item">
-            <img src="http://localhost:3000/src/img/1.jpg" alt="">
-            <h1 class="title">哈哈哈</h1>
+        <router-link class="sp-item" v-for="item in list" :key="item.id" :to="'/index/gm/'+item.id" tag="div">
+            <img :src="item.img_url" alt="">
+            <h1 class="title">{{item.title}}</h1>
             <div class="info">
                 <div class="jg">
-                    <span class="new">$888</span>
-                    <span class="old">$999</span>
+                    <span class="new">￥{{item.sell_price}}</span>
+                    <span class="old">￥{{item.market_price}}</span> 
                 </div>
                 <div class="xsqk">
                     <span>热卖中</span>
-                    <span>剩60件</span>
+                    <span>剩{{item.stock_quantity}}件</span>
                 </div>
             </div>
-        </div>
-        <div class="sp-item">
-            <img src="http://localhost:3000/src/img/2.jpg" alt="">
-            <h1 class="title">哈哈哈</h1>
-            <div class="info">
-                <div class="jg">
-                    <span class="new">$888</span>
-                    <span class="old">$999</span>
-                </div>
-                <div class="xsqk">
-                    <span>热卖中</span>
-                    <span>剩60件</span>
-                </div>
-            </div>
-        </div>
-        <div class="sp-item">
-            <img src="http://localhost:3000/src/img/3.jpg" alt="">
-            <h1 class="title">哈哈哈</h1>
-            <div class="info">
-                <div class="jg">
-                    <span class="new">$888</span>
-                    <span class="old">$999</span>
-                </div>
-                <div class="xsqk">
-                    <span>热卖中</span>
-                    <span>剩60件</span>
-                </div>
-            </div>
-        </div>
+        </router-link>
+        <mt-button size="large" type="danger" plain @click="add">加载更多</mt-button>
     </div>
 </template>
 <script>
-
+export default{
+    data:function(){
+        return {
+            index:1,
+            list:[]
+        }
+    },
+    created(){
+        this.splb()
+    },
+    methods:{
+        splb(){
+            this.$http.get('api/getgoods?pageindex='+this.index).then(result=>{
+                if(result.body.status===0){
+                    this.list=this.list.concat(result.body.message)
+                }
+            })
+        },
+        add(){
+            this.index=this.index+1
+            this.splb()
+        }
+    }
+}
 </script>
 <style lang="less" scoped>
 .sp-list{
