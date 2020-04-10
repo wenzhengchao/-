@@ -1,6 +1,10 @@
 <template>
     <div class="container">
-        <mt-header fixed title="av-night"></mt-header>
+        <mt-header fixed title="av-night">
+             <div @click="back" slot="left" v-show="flag">
+                <mt-button icon="back">返回</mt-button>
+            </div>
+        </mt-header>
         <transition>
             <router-view></router-view>
         </transition>
@@ -15,7 +19,7 @@
 			</router-link>
 			<router-link class="mui-tab-item-gai" to="/shopping">
 				<span class="mui-icon mui-icon-extra mui-icon-extra-cart">
-                    <span class="mui-badge" id="badge">0</span></span>
+                    <span class="mui-badge" id="badge">{{$store.getters.hb}}</span></span>
 				<span class="mui-tab-label">购物车</span>
 			</router-link>
 			<router-link class="mui-tab-item-gai" to="/search">
@@ -26,7 +30,30 @@
     </div>
 </template>
 <script>
-
+export default{
+    data:function(){
+        return {
+            flag:false
+        }
+    },
+    created(){
+        this.flag=(this.$route.path==='/index')?false:true
+    },
+    methods:{
+        back(){
+            this.$router.go(-1)
+        }
+    },
+    watch:{
+        '$route.path':function(news){
+            if(news=='/index'){
+                this.flag=false
+            }else{
+                this.flag=true
+            }
+        }
+    }
+}
 </script>
 <style lang="less" scoped>
 .mint-header{

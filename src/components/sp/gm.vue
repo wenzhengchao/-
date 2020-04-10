@@ -94,10 +94,16 @@ export default{
         },
         ballrun(){
             this.ballflag=!this.ballflag
+            var data={
+                id:this.id,
+                sl:this.cs,
+                selecte:true,
+                sj:this.lists.sell_price
+            }
+            this.$store.commit('sp',data)
         },
         add(add){
             this.cs=add
-            console.log(this.cs)
         },
         beforeEnter(el){
           el.style.transform="translate(0,0)"
